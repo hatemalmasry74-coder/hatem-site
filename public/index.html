@@ -78,6 +78,17 @@ h2::after{content:"";display:block;width:48px;height:4px;background:var(--accent
 footer{padding:32px 0;color:var(--muted);text-align:center;border-top:1px solid var(--line);font-size:14px}
 .wa{position:fixed;bottom:18px;inset-inline-end:18px;background:#2e7d4f;color:#fff;border-radius:999px;padding:12px 20px;font-weight:600;box-shadow:var(--shadow);z-index:20}
 .hidden{display:none!important}
+.portrait{overflow:hidden;padding:0;font-size:0}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.vis{height:120px;border-radius:12px;margin-bottom:16px;display:grid;place-items:center;background:radial-gradient(circle at 25% 20%,var(--olive-l),transparent 60%),linear-gradient(145deg,var(--olive),var(--olive-d))}
+.vis svg{width:56px;height:56px;stroke:#f4f1e6;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.plan{display:flex;flex-direction:column}
+.plan .btn{margin-top:auto;text-align:center}
+.plan p{margin-bottom:16px}
+.price{font-weight:800;color:var(--accent);margin:4px 0 8px}
+.mail{color:var(--muted);margin-top:16px;font-size:15px}
+.mail a{color:var(--olive-d);font-weight:600;border-bottom:1px solid var(--line)}
 .card ul{margin:8px 0 0;padding-inline-start:20px;color:var(--muted);font-size:15.5px}
 .card li{margin:2px 0}
 @media(max-width:760px){
@@ -94,6 +105,7 @@ footer{padding:32px 0;color:var(--muted);text-align:center;border-top:1px solid 
   <nav><ul>
     <li><a href="#about" data-i18n="nav_about">نبذة</a></li>
     <li><a href="#services" data-i18n="nav_services">ماذا أنجز</a></li>
+    <li><a href="#subscribe" data-i18n="nav_sub">اشترك</a></li>
     <li><a href="#skills" data-i18n="nav_skills">المهارات</a></li>
     <li><a href="#contact" data-i18n="nav_contact">تواصل</a></li>
   </ul></nav>
@@ -115,7 +127,7 @@ footer{padding:32px 0;color:var(--muted);text-align:center;border-top:1px solid 
         <a class="btn" href="#services" data-i18n="cta_work">ماذا أنجز</a>
       </div>
     </div>
-    <div class="portrait" aria-hidden="true" data-i18n="initial">ح</div>
+    <div class="portrait"><img src="hatem.jpg" alt="حاتم عطية" width="760" height="760" fetchpriority="high"></div>
   </div>
 
   <section id="about">
@@ -129,6 +141,12 @@ footer{padding:32px 0;color:var(--muted);text-align:center;border-top:1px solid 
     <div class="grid" id="svc"></div>
   </section>
 
+  <section id="subscribe">
+    <h2 data-i18n="sub_h"></h2>
+    <p class="sub" data-i18n="sub_p"></p>
+    <div class="plans" id="plans"></div>
+  </section>
+
   <section id="skills">
     <h2 data-i18n="skills_h"></h2>
     <p class="sub" data-i18n="skills_p"></p>
@@ -139,6 +157,7 @@ footer{padding:32px 0;color:var(--muted);text-align:center;border-top:1px solid 
     <h2 data-i18n="contact_h"></h2>
     <p class="sub" data-i18n="contact_p"></p>
     <div class="contact-list" id="contacts"></div>
+    <p class="mail"><span data-i18n="mail_l"></span> <a id="mailtxt"></a></p>
   </section>
 </main>
 
@@ -179,13 +198,31 @@ const SERVICES = {
     ["Digital platforms for restaurants","Systems that serve the owner directly: POS and e-invoicing, digital menu and online ordering, delivery, and accounting.",["POS & e-invoicing","Digital menu & ordering","Accounting & reports"]]
   ]
 };
+const ICONS=[
+ '<svg viewBox="0 0 64 64"><rect x="12" y="10" width="40" height="44" rx="5"/><path d="M20 22h24M20 32h24M20 42h14"/><circle cx="46" cy="42" r="4"/></svg>',
+ '<svg viewBox="0 0 64 64"><path d="M14 18h36M14 32h36M14 46h36"/><path d="M20 12l-6 6 6 6M44 26l6 6-6 6"/></svg>',
+ '<svg viewBox="0 0 64 64"><path d="M32 8l20 8v14c0 12-8 22-20 26C20 52 12 42 12 30V16z"/><path d="M23 32l7 7 12-14"/></svg>',
+ '<svg viewBox="0 0 64 64"><path d="M10 52h44"/><rect x="14" y="30" width="8" height="22"/><rect x="28" y="20" width="8" height="32"/><rect x="42" y="10" width="8" height="42"/></svg>',
+ '<svg viewBox="0 0 64 64"><path d="M6 24l26-12 26 12-26 12z"/><path d="M16 30v14c0 4 8 8 16 8s16-4 16-8V30"/><path d="M58 24v16"/></svg>',
+ '<svg viewBox="0 0 64 64"><rect x="8" y="12" width="48" height="32" rx="4"/><path d="M24 54h16M32 44v10"/><path d="M20 28l8-8 8 8 8-10"/></svg>'];
+const PLANS={
+ ar:[
+  ["الانضمام إلى برنامج تأهيل مديري التشغيل","برنامج عملي لتأهيل مديري التشغيل في المطاعم والكافيهات، مع منصة تدريب واختبارات واعتماد وبرنامج تطبيقي.",["23 وحدة تدريبية","اختبارات وتقييم واعتماد","برنامج تطبيقي 30 يومًا"],"أريد الاشتراك في برنامج تأهيل مديري التشغيل"],
+  ["استشارة تشغيلية للمطعم أو الكافيه","جلسة تحليل لوضعك الحالي: التكلفة، الهدر، التشغيل اليومي، والجودة، مع خطة تحسين واضحة.",["تحليل التكلفة والهدر","مراجعة التشغيل والجودة","خطة تحسين مكتوبة"],"أريد حجز استشارة تشغيلية لمطعمي"],
+  ["منصة رقمية لمطعمك","نظام يناسب نشاطك: كاشير وفوترة إلكترونية، منيو رقمي وطلب أونلاين، ومحاسبة وتقارير.",["كاشير وفوترة إلكترونية","منيو رقمي وطلب أونلاين","محاسبة وتقارير"],"أريد معرفة تفاصيل المنصة الرقمية للمطاعم"]
+ ],
+ en:[
+  ["Join the operations manager qualification program","A practical program that qualifies operations managers for restaurants and cafés, with a training platform, assessments, certification and a hands-on plan.",["23 training units","Tests, evaluation & certification","30-day practical program"],"I would like to join the operations manager training program"],
+  ["Operations consultation for your restaurant or café","An analysis session of your current situation: cost, waste, daily operations and quality, with a clear improvement plan.",["Cost & waste analysis","Operations & quality review","Written improvement plan"],"I would like to book an operations consultation"],
+  ["A digital platform for your restaurant","A system that fits your business: POS and e-invoicing, digital menu and online ordering, accounting and reports.",["POS & e-invoicing","Digital menu & online ordering","Accounting & reports"],"I would like details about the digital platform for restaurants"]
+ ]};
 const SKILLS = {
   ar:["تشغيل المطاعم والكافيهات","تكلفة الغذاء","بطاقات التكلفة","إدارة الهدر والمخزون","سلامة الغذاء (HACCP)","تدقيق الفروع (CAPA)","مؤشرات الأداء (KPIs)","تدريب وتأهيل الفرق","أنظمة نقاط البيع","الفوترة الإلكترونية","المنيو الرقمي","تطوير الويب (HTML / JavaScript)","Firebase / Cloudflare"],
   en:["Restaurant & café operations","Food cost control","Recipe costing cards","Waste & inventory management","HACCP & food safety","Branch audits & CAPA","KPIs","Team training & development","POS systems","E-invoicing","Digital menus","Web development (HTML / JavaScript)","Firebase & Cloudflare"]
 };
 
 const T = {
-  ar:{logo:"حاتم",nav_about:"نبذة",nav_services:"ماذا أنجز",nav_skills:"المهارات",nav_contact:"تواصل",kicker:"مرحباً، أنا",name:"حاتم عطية",role:"تشغيل المطاعم والمشاريع",
+  ar:{logo:"حاتم",nav_about:"نبذة",nav_services:"ماذا أنجز",nav_skills:"المهارات",nav_sub:"اشترك",nav_contact:"تواصل",sub_h:"اشترك الآن",sub_p:"اختر ما يناسبك، واضغط الزر لتصلني رسالتك على واتساب جاهزة.",sub_cta:"اشترك عبر واتساب",price:"السعر: تواصل معي",mail_l:"أو راسلني على البريد:",kicker:"مرحباً، أنا",name:"حاتم عطية",role:"تشغيل المطاعم والمشاريع",
     tagline:"أبني أنظمة تشغيل واضحة ترفع الجودة وتضبط التكلفة في المطاعم والكافيهات — من بطاقات التكلفة والتدقيق والتدريب إلى المنصات الرقمية.",
     cta_contact:"تواصل معي",cta_work:"ماذا أنجز",initial:"ح",
     about_h:"نبذة عني",about_p:"خبرة ميدانية في تشغيل المطاعم والمقاهي في المملكة العربية السعودية. أؤمن بأن التشغيل الممتاز ليس صدفة بل نظام: معايير واضحة، أرقام دقيقة، وفرق مدرّبة. أجمع بين الخبرة التشغيلية والمحاسبية والتقنية لأبني حلولاً عملية تخدم صاحب المشروع مباشرة.",
@@ -193,7 +230,7 @@ const T = {
     skills_h:"المهارات",skills_p:"مجالات الخبرة والأدوات.",
     contact_h:"تواصل معي",contact_p:"أسرع طريقة للوصول إليّ هي واتساب.",wa:"واتساب",foot:"© جميع الحقوق محفوظة — حاتم عطية",
     langBtn:"English",email:"البريد",training:"منصة التدريب"},
-  en:{logo:"Hatem",nav_about:"About",nav_services:"What I deliver",nav_skills:"Skills",nav_contact:"Contact",kicker:"Hi, I'm",name:"Hatem Attia",role:"Restaurant & business operations",
+  en:{logo:"Hatem",nav_about:"About",nav_services:"What I deliver",nav_skills:"Skills",nav_sub:"Subscribe",nav_contact:"Contact",sub_h:"Subscribe now",sub_p:"Pick what suits you and tap the button — your message reaches me on WhatsApp, ready to send.",sub_cta:"Subscribe via WhatsApp",price:"Price: contact me",mail_l:"Or email me at:",kicker:"Hi, I'm",name:"Hatem Attia",role:"Restaurant & business operations",
     tagline:"I build clear operating systems that raise quality and control cost in restaurants and cafés — from costing cards, audits and training to digital platforms.",
     cta_contact:"Get in touch",cta_work:"What I deliver",initial:"H",
     about_h:"About me",about_p:"Hands-on experience running restaurants and cafés in Saudi Arabia. I believe excellent operations are not luck but a system: clear standards, accurate numbers and trained teams. I combine operational, financial and technical experience to build practical solutions that serve the business owner directly.",
@@ -212,11 +249,13 @@ function render(){
   $$("[data-i18n]").forEach(el=>{const v=t[el.dataset.i18n]; if(v!=null) el.textContent=v;});
   $("#lang").textContent=t.langBtn;
   document.title=lang==="ar"?"حاتم عطية | Hatem Attia":"Hatem Attia | حاتم عطية";
-  $("#svc").innerHTML=SERVICES[lang].map(([h,p,li])=>`<article class="card"><h3>${esc(h)}</h3><p>${esc(p)}</p><ul>${li.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></article>`).join("");
+  $("#svc").innerHTML=SERVICES[lang].map(([h,p,li],i)=>`<article class="card"><div class="vis" aria-hidden="true">${ICONS[i]}</div><h3>${esc(h)}</h3><p>${esc(p)}</p><ul>${li.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></article>`).join("");
+  $("#plans").innerHTML=PLANS[lang].map(([h,p,li,msg])=>`<article class="card plan"><h3>${esc(h)}</h3><div class="price">${esc(t.price)}</div><p>${esc(p)}</p><ul>${li.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><a class="btn primary" style="margin-top:18px" target="_blank" rel="noopener" href="https://wa.me/${PROFILE.whatsapp.replace(/\D/g,"")}?text=${encodeURIComponent(msg)}">${esc(t.sub_cta)}</a></article>`).join("");
+  const mt=$("#mailtxt"); mt.textContent=PROFILE.links.email; mt.href="mailto:"+PROFILE.links.email;
   $("#skl").innerHTML=SKILLS[lang].map(x=>`<span>${esc(x)}</span>`).join("");
   const box=$("#contacts"); box.innerHTML="";
   const L=PROFILE.links, names={training:t.training,linkedin:"LinkedIn",youtube:"YouTube",tiktok:"TikTok",instagram:"Instagram",facebook:"Facebook",github:"GitHub",email:t.email};
-  const add=(label,href,primary)=>{const a=document.createElement("a");a.className="btn"+(primary?" primary":"");a.textContent=label;a.href=href;a.target="_blank";a.rel="noopener";box.appendChild(a);};
+  const add=(label,href,primary)=>{const a=document.createElement("a");a.className="btn"+(primary?" primary":"");a.textContent=label;a.href=href;if(!href.startsWith("mailto:")){a.target="_blank";a.rel="noopener";}box.appendChild(a);};
   if(PROFILE.whatsapp) add(t.wa,"https://wa.me/"+PROFILE.whatsapp.replace(/\D/g,""),true);
   Object.keys(names).forEach(k=>{if(L[k]) add(names[k],k==="email"?"mailto:"+L[k]:L[k]);});
   const wa=$("#wa"); if(PROFILE.whatsapp){wa.href="https://wa.me/"+PROFILE.whatsapp.replace(/\D/g,"");wa.classList.remove("hidden");} else wa.classList.add("hidden");

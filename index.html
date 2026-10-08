@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>حاتم المصري | Hatem Almasry</title>
+<meta name="description" content="الموقع الشخصي لحاتم المصري — Personal website of Hatem Almasry">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f1e6; --surface:#fbf9f2; --ink:#222a16; --muted:#5d6650;
+  --olive:#556b2f; --olive-d:#3e4f22; --olive-l:#8a9a5b; --line:#d9d6c3; --accent:#b08d3c;
+  --shadow:0 6px 24px rgba(60,75,30,.10);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#161b0f; --surface:#1e2515; --ink:#ece9da; --muted:#a3ac92;
+    --olive:#a3b86c; --olive-d:#c3d58c; --olive-l:#6f8140; --line:#2e3622; --accent:#d4b062;
+    --shadow:0 6px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161b0f; --surface:#1e2515; --ink:#ece9da; --muted:#a3ac92;
+  --olive:#a3b86c; --olive-d:#c3d58c; --olive-l:#6f8140; --line:#2e3622; --accent:#d4b062;
+  --shadow:0 6px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Cairo','Inter',system-ui,sans-serif;line-height:1.8;font-size:17px}
+[lang="en"] body,html[lang="en"] body{font-family:'Inter','Cairo',system-ui,sans-serif;line-height:1.7}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;height:62px}
+.logo{font-weight:800;font-size:20px;color:var(--olive)}
+nav ul{display:flex;gap:22px;list-style:none}
+nav a{font-weight:600;color:var(--muted);font-size:15px}
+nav a:hover{color:var(--olive)}
+.tools{display:flex;gap:8px}
+.btn-s{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:6px 12px;border-radius:999px;font:inherit;font-size:14px;cursor:pointer}
+.btn-s:hover{border-color:var(--olive)}
+.hero{padding:84px 0 64px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+.kicker{color:var(--accent);font-weight:600;letter-spacing:.04em;margin-bottom:8px}
+h1{font-size:clamp(34px,6vw,58px);line-height:1.2;font-weight:800;color:var(--olive-d)}
+.hero p{color:var(--muted);margin:18px 0 28px;max-width:520px;font-size:18px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 24px;border-radius:12px;font-weight:600;border:2px solid var(--olive)}
+.btn.primary{background:var(--olive);color:#fff}
+:root[data-theme="dark"] .btn.primary{color:#161b0f}
+.btn.primary:hover{background:var(--olive-d)}
+.btn:not(.primary):hover{background:var(--olive);color:#fff}
+.portrait{aspect-ratio:1;border-radius:32px;background:
+  radial-gradient(circle at 30% 25%,var(--olive-l),transparent 55%),
+  linear-gradient(145deg,var(--olive),var(--olive-d));
+  display:grid;place-items:center;color:#f4f1e6;font-family:'Fraunces',serif;font-size:120px;font-weight:800;box-shadow:var(--shadow);transform:rotate(-3deg)}
+section{padding:60px 0;border-top:1px solid var(--line)}
+h2{font-size:30px;color:var(--olive-d);margin-bottom:8px;font-weight:800}
+h2::after{content:"";display:block;width:48px;height:4px;background:var(--accent);border-radius:2px;margin-top:8px}
+.sub{color:var(--muted);margin-bottom:28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:var(--shadow)}
+.card h3{font-size:19px;margin-bottom:6px;color:var(--olive-d)}
+.card p{color:var(--muted);font-size:15.5px}
+.tag{display:inline-block;font-size:13px;background:color-mix(in srgb,var(--olive) 14%,transparent);color:var(--olive-d);padding:2px 12px;border-radius:999px;margin:6px 4px 0 0;font-weight:600}
+[dir="rtl"] .tag{margin:6px 0 0 4px}
+.skills{display:flex;flex-wrap:wrap;gap:10px}
+.skills span{background:var(--surface);border:1px solid var(--line);padding:8px 18px;border-radius:999px;font-weight:600}
+.featured{border-color:var(--olive);position:relative}
+.featured::before{content:attr(data-badge);position:absolute;top:-12px;inset-inline-start:20px;background:var(--accent);color:#fff;font-size:12px;padding:2px 12px;border-radius:999px;font-weight:600}
+.contact-list{display:flex;flex-wrap:wrap;gap:12px}
+footer{padding:32px 0;color:var(--muted);text-align:center;border-top:1px solid var(--line);font-size:14px}
+.wa{position:fixed;bottom:18px;inset-inline-end:18px;background:#2e7d4f;color:#fff;border-radius:999px;padding:12px 20px;font-weight:600;box-shadow:var(--shadow);z-index:20}
+.hidden{display:none!important}
+@media(max-width:760px){
+  nav{display:none}
+  .hero{grid-template-columns:1fr;padding-top:48px}
+  .portrait{max-width:220px;font-size:84px;order:-1}
+}
+</style>
+</head>
+<body>
+
+<header><div class="wrap nav">
+  <a href="#top" class="logo" data-i18n="logo">حاتم</a>
+  <nav><ul>
+    <li><a href="#about" data-i18n="nav_about">نبذة</a></li>
+    <li><a href="#skills" data-i18n="nav_skills">المهارات</a></li>
+    <li><a href="#work" data-i18n="nav_work">أعمالي</a></li>
+    <li><a href="#contact" data-i18n="nav_contact">تواصل</a></li>
+  </ul></nav>
+  <div class="tools">
+    <button class="btn-s" id="theme" aria-label="theme">◐</button>
+    <button class="btn-s" id="lang">English</button>
+  </div>
+</div></header>
+
+<main id="top" class="wrap">
+  <div class="hero">
+    <div>
+      <div class="kicker" data-i18n="kicker">مرحباً، أنا</div>
+      <h1 data-i18n="name">حاتم المصري</h1>
+      <p data-i18n="tagline">أبني حلولاً رقمية تُسهّل إدارة الأعمال — من أنظمة الكاشير والفوترة الإلكترونية إلى المنصات المتكاملة للمنشآت.</p>
+      <div class="cta">
+        <a class="btn primary" href="#work" data-i18n="cta_work">شاهد أعمالي</a>
+        <a class="btn" href="#contact" data-i18n="cta_contact">تواصل معي</a>
+      </div>
+    </div>
+    <div class="portrait" aria-hidden="true" data-i18n="initial">ح</div>
+  </div>
+
+  <section id="about">
+    <h2 data-i18n="about_h">نبذة عني</h2>
+    <p class="sub" data-i18n="about_p">أعمل على بناء منتجات برمجية عملية تخدم أصحاب المنشآت مباشرة: أفكّر في المشكلة من زاوية صاحب العمل، وأحوّلها إلى نظام بسيط وموثوق. أؤمن بأن أفضل برنامج هو الذي يختفي أثناء العمل ويُظهر النتيجة فقط. (عدّل هذه النبذة لتعكس قصتك الحقيقية.)</p>
+  </section>
+
+  <section id="skills">
+    <h2 data-i18n="skills_h">المهارات</h2>
+    <p class="sub" data-i18n="skills_p">الأدوات والمجالات التي أعمل بها.</p>
+    <div class="skills">
+      <span>HTML / CSS / JavaScript</span><span>Firebase / Firestore</span><span>Cloudflare</span>
+      <span>SaaS</span><span data-i18n="sk1">أنظمة نقاط البيع</span><span data-i18n="sk2">الفوترة الإلكترونية</span>
+      <span data-i18n="sk3">المحاسبة والتقارير</span><span data-i18n="sk4">تجربة المستخدم العربية (RTL)</span>
+    </div>
+  </section>
+
+  <section id="work">
+    <h2 data-i18n="work_h">أعمالي</h2>
+    <p class="sub" data-i18n="work_p">مشاريع أعمل عليها أو أنجزتها.</p>
+    <div class="grid">
+      <article class="card featured" data-badge="">
+        <h3 data-i18n="p1_t">نَسَق — المنصة الموحّدة</h3>
+        <p data-i18n="p1_d">منصة SaaS متعددة المنشآت تجمع الكاشير، الفوترة الإلكترونية، المنيو الرقمي، الطلب من الطاولة، التوصيل، المحاسبة والموارد البشرية على قاعدة بيانات واحدة.</p>
+        <span class="tag">POS</span><span class="tag">Firebase</span><span class="tag">SaaS</span>
+      </article>
+      <article class="card">
+        <h3 data-i18n="p2_t">مشروعك القادم هنا</h3>
+        <p data-i18n="p2_d">أضف مشاريع أخرى من مستودعاتك على GitHub — أخبرني بها وسأضيفها.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 data-i18n="contact_h">تواصل معي</h2>
+    <p class="sub" data-i18n="contact_p">أسرع طريقة للوصول إليّ هي واتساب.</p>
+    <div class="contact-list" id="contacts"></div>
+  </section>
+</main>
+
+<a class="wa hidden" id="wa" target="_blank" rel="noopener" data-i18n="wa">واتساب</a>
+<footer><div class="wrap"><span data-i18n="foot">© جميع الحقوق محفوظة — حاتم المصري</span></div></footer>
+
+<script>
+/* ===== عدّل هنا بياناتك فقط ===== */
+const PROFILE = {
+  whatsapp: "",   // بصيغة دولية بدون + أو أصفار، مثال: 9665XXXXXXXX
+  links: {        // اترك الفارغ ليُخفى تلقائياً
+    github:   "https://github.com/hatemalmasry74-coder",
+    linkedin: "",
+    x:        "",
+    instagram:"",
+    email:    ""
+  }
+};
+/* ================================ */
+
+const T = {
+  ar:{logo:"حاتم",nav_about:"نبذة",nav_skills:"المهارات",nav_work:"أعمالي",nav_contact:"تواصل",kicker:"مرحباً، أنا",name:"حاتم المصري",
+    tagline:"أبني حلولاً رقمية تُسهّل إدارة الأعمال — من أنظمة الكاشير والفوترة الإلكترونية إلى المنصات المتكاملة للمنشآت.",
+    cta_work:"شاهد أعمالي",cta_contact:"تواصل معي",initial:"ح",
+    about_h:"نبذة عني",about_p:"أعمل على بناء منتجات برمجية عملية تخدم أصحاب المنشآت مباشرة: أفكّر في المشكلة من زاوية صاحب العمل، وأحوّلها إلى نظام بسيط وموثوق. أؤمن بأن أفضل برنامج هو الذي يختفي أثناء العمل ويُظهر النتيجة فقط. (عدّل هذه النبذة لتعكس قصتك الحقيقية.)",
+    skills_h:"المهارات",skills_p:"الأدوات والمجالات التي أعمل بها.",sk1:"أنظمة نقاط البيع",sk2:"الفوترة الإلكترونية",sk3:"المحاسبة والتقارير",sk4:"تجربة المستخدم العربية (RTL)",
+    work_h:"أعمالي",work_p:"مشاريع أعمل عليها أو أنجزتها.",p1_t:"نَسَق — المنصة الموحّدة",
+    p1_d:"منصة SaaS متعددة المنشآت تجمع الكاشير، الفوترة الإلكترونية، المنيو الرقمي، الطلب من الطاولة، التوصيل، المحاسبة والموارد البشرية على قاعدة بيانات واحدة.",
+    p2_t:"مشروعك القادم هنا",p2_d:"أضف مشاريع أخرى من مستودعاتك على GitHub — أخبرني بها وسأضيفها.",
+    contact_h:"تواصل معي",contact_p:"أسرع طريقة للوصول إليّ هي واتساب.",wa:"واتساب",foot:"© جميع الحقوق محفوظة — حاتم المصري",badge:"مشروع مميّز",langBtn:"English"},
+  en:{logo:"Hatem",nav_about:"About",nav_skills:"Skills",nav_work:"Work",nav_contact:"Contact",kicker:"Hi, I'm",name:"Hatem Almasry",
+    tagline:"I build digital products that simplify running a business — from POS and e-invoicing to all-in-one platforms for venues.",
+    cta_work:"See my work",cta_contact:"Get in touch",initial:"H",
+    about_h:"About me",about_p:"I build practical software that serves business owners directly: I look at the problem from the owner's side and turn it into a simple, reliable system. I believe the best software disappears while you work and just shows the result. (Edit this to reflect your real story.)",
+    skills_h:"Skills",skills_p:"Tools and domains I work with.",sk1:"Point-of-sale systems",sk2:"E-invoicing",sk3:"Accounting & reporting",sk4:"Arabic (RTL) UX",
+    work_h:"Work",work_p:"Projects I'm building or have shipped.",p1_t:"Nassaq — Unified Platform",
+    p1_d:"A multi-tenant SaaS combining POS, e-invoicing, digital menu, table ordering, delivery, accounting and HR on a single database.",
+    p2_t:"Your next project here",p2_d:"Add more projects from your GitHub repos — tell me which ones and I'll add them.",
+    contact_h:"Contact",contact_p:"The fastest way to reach me is WhatsApp.",wa:"WhatsApp",foot:"© All rights reserved — Hatem Almasry",badge:"Featured",langBtn:"العربية"}
+};
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+let lang=(()=>{try{return localStorage.getItem("lang")}catch(e){return null}})()||"ar";
+
+function render(){
+  const t=T[lang];
+  document.documentElement.lang=lang; document.documentElement.dir=lang==="ar"?"rtl":"ltr";
+  $$("[data-i18n]").forEach(el=>{const v=t[el.dataset.i18n]; if(v!=null) el.textContent=v;});
+  $(".featured").dataset.badge=t.badge; $("#lang").textContent=t.langBtn;
+  document.title=lang==="ar"?"حاتم المصري | Hatem Almasry":"Hatem Almasry | حاتم المصري";
+  const box=$("#contacts"); box.innerHTML="";
+  const L=PROFILE.links, names={github:"GitHub",linkedin:"LinkedIn",x:"X",instagram:"Instagram",email:lang==="ar"?"البريد":"Email"};
+  const add=(label,href,primary)=>{const a=document.createElement("a");a.className="btn"+(primary?" primary":"");a.textContent=label;a.href=href;a.target="_blank";a.rel="noopener";box.appendChild(a);};
+  if(PROFILE.whatsapp) add(t.wa,"https://wa.me/"+PROFILE.whatsapp.replace(/\D/g,""),true);
+  Object.keys(names).forEach(k=>{if(L[k]) add(names[k],k==="email"?"mailto:"+L[k]:L[k]);});
+  const wa=$("#wa"); if(PROFILE.whatsapp){wa.href="https://wa.me/"+PROFILE.whatsapp.replace(/\D/g,"");wa.classList.remove("hidden");} else wa.classList.add("hidden");
+}
+$("#lang").onclick=()=>{lang=lang==="ar"?"en":"ar";try{localStorage.setItem("lang",lang)}catch(e){}render();};
+$("#theme").onclick=()=>{const r=document.documentElement,d=r.dataset.theme==="dark"||(!r.dataset.theme&&matchMedia("(prefers-color-scheme:dark)").matches);r.dataset.theme=d?"light":"dark";};
+render();
+</script>
+</body>
+</html>

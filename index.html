@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>حاتم المصري | Hatem Almasry</title>
-<meta name="description" content="الموقع الشخصي لحاتم المصري — Personal website of Hatem Almasry">
+<title>حاتم عطية | Hatem Attia</title>
+<meta name="description" content="حاتم عطية — تشغيل المطاعم والمشاريع | Hatem Attia — Restaurant & business operations">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -66,13 +66,15 @@ h2::after{content:"";display:block;width:48px;height:4px;background:var(--accent
 .tag{display:inline-block;font-size:13px;background:color-mix(in srgb,var(--olive) 14%,transparent);color:var(--olive-d);padding:2px 12px;border-radius:999px;margin:6px 4px 0 0;font-weight:600}
 [dir="rtl"] .tag{margin:6px 0 0 4px}
 .skills{display:flex;flex-wrap:wrap;gap:10px}
-.skills span{background:var(--surface);border:1px solid var(--line);padding:8px 18px;border-radius:999px;font-weight:600}
+.skills span{unicode-bidi:plaintext;background:var(--surface);border:1px solid var(--line);padding:8px 18px;border-radius:999px;font-weight:600}
 .featured{border-color:var(--olive);position:relative}
 .featured::before{content:attr(data-badge);position:absolute;top:-12px;inset-inline-start:20px;background:var(--accent);color:#fff;font-size:12px;padding:2px 12px;border-radius:999px;font-weight:600}
 .contact-list{display:flex;flex-wrap:wrap;gap:12px}
 footer{padding:32px 0;color:var(--muted);text-align:center;border-top:1px solid var(--line);font-size:14px}
 .wa{position:fixed;bottom:18px;inset-inline-end:18px;background:#2e7d4f;color:#fff;border-radius:999px;padding:12px 20px;font-weight:600;box-shadow:var(--shadow);z-index:20}
 .hidden{display:none!important}
+.card ul{margin:8px 0 0;padding-inline-start:20px;color:var(--muted);font-size:15.5px}
+.card li{margin:2px 0}
 @media(max-width:760px){
   nav{display:none}
   .hero{grid-template-columns:1fr;padding-top:48px}
@@ -86,8 +88,8 @@ footer{padding:32px 0;color:var(--muted);text-align:center;border-top:1px solid 
   <a href="#top" class="logo" data-i18n="logo">حاتم</a>
   <nav><ul>
     <li><a href="#about" data-i18n="nav_about">نبذة</a></li>
+    <li><a href="#services" data-i18n="nav_services">ماذا أنجز</a></li>
     <li><a href="#skills" data-i18n="nav_skills">المهارات</a></li>
-    <li><a href="#work" data-i18n="nav_work">أعمالي</a></li>
     <li><a href="#contact" data-i18n="nav_contact">تواصل</a></li>
   </ul></nav>
   <div class="tools">
@@ -100,110 +102,115 @@ footer{padding:32px 0;color:var(--muted);text-align:center;border-top:1px solid 
   <div class="hero">
     <div>
       <div class="kicker" data-i18n="kicker">مرحباً، أنا</div>
-      <h1 data-i18n="name">حاتم المصري</h1>
-      <p data-i18n="tagline">أبني حلولاً رقمية تُسهّل إدارة المطاعم والمنشآت — من الكاشير والفوترة الإلكترونية إلى المنيو الرقمي والتوصيل والمحاسبة.</p>
+      <h1 data-i18n="name">حاتم عطية</h1>
+      <div class="kicker" style="margin:10px 0 0" data-i18n="role">تشغيل المطاعم والمشاريع</div>
+      <p data-i18n="tagline"></p>
       <div class="cta">
-        <a class="btn primary" href="#work" data-i18n="cta_work">شاهد أعمالي</a>
-        <a class="btn" href="#contact" data-i18n="cta_contact">تواصل معي</a>
+        <a class="btn primary" href="#contact" data-i18n="cta_contact">تواصل معي</a>
+        <a class="btn" href="#services" data-i18n="cta_work">ماذا أنجز</a>
       </div>
     </div>
     <div class="portrait" aria-hidden="true" data-i18n="initial">ح</div>
   </div>
 
   <section id="about">
-    <h2 data-i18n="about_h">نبذة عني</h2>
-    <p class="sub" data-i18n="about_p">هذه نبذة مؤقتة. أرسل لي معلوماتك ومجال عملك وسأكتبها بصياغتك.</p>
+    <h2 data-i18n="about_h"></h2>
+    <p class="sub" data-i18n="about_p"></p>
+  </section>
+
+  <section id="services">
+    <h2 data-i18n="svc_h"></h2>
+    <p class="sub" data-i18n="svc_p"></p>
+    <div class="grid" id="svc"></div>
   </section>
 
   <section id="skills">
-    <h2 data-i18n="skills_h">المهارات</h2>
-    <p class="sub" data-i18n="skills_p">مهارات مؤقتة — سأعدّلها حسب ما ترسله.</p>
-    <div class="skills">
-      <span>HTML / CSS / JavaScript</span><span>Firebase / Firestore</span><span>Cloudflare</span>
-      <span>SaaS</span><span data-i18n="sk1">أنظمة نقاط البيع</span><span data-i18n="sk2">الفوترة الإلكترونية</span>
-      <span data-i18n="sk3">المحاسبة والتقارير</span><span data-i18n="sk5">المنيو الرقمي والطلب أونلاين</span>
-      <span data-i18n="sk4">تجربة المستخدم العربية (RTL)</span>
-    </div>
-  </section>
-
-  <section id="work">
-    <h2 data-i18n="work_h">أعمالي</h2>
-    <p class="sub" data-i18n="work_p">مشاريع أعمل عليها أو أنجزتها.</p>
-    <div class="grid">
-      <a class="card featured" data-badge="" href="#work">
-        <h3 data-i18n="p1_t"></h3><p data-i18n="p1_d"></p>
-        <span class="tag">POS</span><span class="tag">Firebase</span><span class="tag">SaaS</span>
-      </a>
-      <a class="card" href="https://github.com/hatemalmasry74-coder/felde-platform" target="_blank" rel="noopener">
-        <h3 data-i18n="p2_t"></h3><p data-i18n="p2_d"></p><span class="tag">GitHub</span>
-      </a>
-      <div class="card">
-        <h3 data-i18n="p3_t"></h3><p data-i18n="p3_d"></p><span class="tag">Delivery</span>
-      </div>
-      <div class="card">
-        <h3 data-i18n="p4_t"></h3><p data-i18n="p4_d"></p>
-        <a class="tag" href="https://github.com/hatemalmasry74-coder/habaq-restaurant" target="_blank" rel="noopener">Habaq</a>
-        <a class="tag" href="https://github.com/hatemalmasry74-coder/nabokhan-restaurant" target="_blank" rel="noopener">Nabokhan</a>
-        <a class="tag" href="https://github.com/hatemalmasry74-coder/shay-allayl-menu" target="_blank" rel="noopener">Shay Allayl</a>
-      </div>
-    </div>
+    <h2 data-i18n="skills_h"></h2>
+    <p class="sub" data-i18n="skills_p"></p>
+    <div class="skills" id="skl"></div>
   </section>
 
   <section id="contact">
-    <h2 data-i18n="contact_h">تواصل معي</h2>
-    <p class="sub" data-i18n="contact_p">أسرع طريقة للوصول إليّ هي واتساب.</p>
+    <h2 data-i18n="contact_h"></h2>
+    <p class="sub" data-i18n="contact_p"></p>
     <div class="contact-list" id="contacts"></div>
   </section>
 </main>
 
 <a class="wa hidden" id="wa" target="_blank" rel="noopener" data-i18n="wa">واتساب</a>
-<footer><div class="wrap"><span data-i18n="foot">© جميع الحقوق محفوظة — حاتم المصري</span></div></footer>
+<footer><div class="wrap"><span data-i18n="foot"></span></div></footer>
 
 <script>
-/* ===== عدّل هنا بياناتك فقط ===== */
+/* ===== بياناتك ===== */
 const PROFILE = {
-  whatsapp: "",   // بصيغة دولية بدون + أو أصفار، مثال: 9665XXXXXXXX
-  links: {        // اترك الفارغ ليُخفى تلقائياً
-    github:   "https://github.com/hatemalmasry74-coder",
-    linkedin: "",
-    x:        "",
-    instagram:"",
-    email:    ""
+  whatsapp: "966580008948",
+  links: {
+    linkedin:  "https://www.linkedin.com/in/hatem-attia-cma",
+    youtube:   "https://www.youtube.com/@HatemOperations",
+    tiktok:    "https://www.tiktok.com/@hatem.almasry1",
+    instagram: "https://www.instagram.com/hatemoperations",
+    facebook:  "https://www.facebook.com/HatemOperations",
+    training:  "https://hatem-ops-training.pages.dev",
+    github:    "https://github.com/hatemalmasry74-coder",
+    email:     "hatemalmasry74@gmail.com"
   }
 };
-/* ================================ */
+
+const SERVICES = {
+  ar:[
+    ["بطاقات التكلفة وتكلفة الغذاء","بناء بطاقات تكلفة دقيقة للأصناف، ضبط هامش الربح وأسعار البيع، ومراقبة تكلفة الغذاء والهدر والفروقات المخزنية.",["بطاقات تكلفة الوصفات","نسبة تكلفة الغذاء المستهدفة","إدارة الهدر والمخزون"]],
+    ["أنظمة التشغيل اليومي","تصميم نظام الفتح والتشغيل والإغلاق وقوائم المراجعة والإجراءات المعيارية لتعمل كل الفروع بنفس المعيار.",["إجراءات تشغيل معيارية (SOPs)","قوائم فتح وإغلاق","روتين مدير التشغيل"]],
+    ["الجودة وسلامة الغذاء","تطبيق اشتراطات النظافة وسلامة الغذاء وHACCP، وبناء منظومة التدقيق والإجراءات التصحيحية والوقائية (CAPA).",["سلامة الغذاء (HACCP)","تدقيق الفروع","CAPA ومكافحة الآفات"]],
+    ["التقارير ومؤشرات الأداء","منظومة تقارير ومؤشرات أداء واضحة تُظهر الأرقام الحقيقية وتدعم القرار على مستوى الفرع والشركة.",["لوحات KPIs","تقارير يومية وأسبوعية وشهرية","تحليل الانحرافات"]],
+    ["تدريب وتأهيل مديري التشغيل","برنامج تدريبي عملي لتأهيل مديري التشغيل في المطاعم والكافيهات، مع منصة تدريب واختبارات واعتماد وبرنامج تطبيقي.",["23 وحدة تدريبية","اختبارات وتقييم","منصة تدريب إلكترونية"]],
+    ["منصات وأنظمة رقمية للمطاعم","بناء أنظمة تخدم صاحب المطعم مباشرة: كاشير وفوترة إلكترونية، منيو رقمي وطلب أونلاين، توصيل، ومحاسبة.",["نقاط البيع والفوترة","المنيو الرقمي والطلب","المحاسبة والتقارير"]]
+  ],
+  en:[
+    ["Recipe costing & food cost","Building accurate costing cards for menu items, setting margins and selling prices, and controlling food cost, waste and stock variances.",["Recipe costing cards","Target food-cost %","Waste & inventory control"]],
+    ["Daily operating systems","Designing open / run / close routines, checklists and standard procedures so every branch runs to the same standard.",["Standard operating procedures","Opening & closing checklists","Operations manager routine"]],
+    ["Quality & food safety","Applying hygiene and food-safety requirements and HACCP, and building the audit and corrective/preventive action (CAPA) system.",["HACCP & food safety","Branch audits","CAPA & pest control"]],
+    ["Reporting & KPIs","A clear reporting and KPI system that shows the real numbers and supports decisions at branch and company level.",["KPI dashboards","Daily / weekly / monthly reports","Variance analysis"]],
+    ["Operations manager training","A practical program that qualifies operations managers for restaurants and cafés, with a training platform, assessments, certification and a hands-on plan.",["23 training units","Tests & evaluation","Online training platform"]],
+    ["Digital platforms for restaurants","Systems that serve the owner directly: POS and e-invoicing, digital menu and online ordering, delivery, and accounting.",["POS & e-invoicing","Digital menu & ordering","Accounting & reports"]]
+  ]
+};
+const SKILLS = {
+  ar:["تشغيل المطاعم والكافيهات","تكلفة الغذاء","بطاقات التكلفة","إدارة الهدر والمخزون","سلامة الغذاء (HACCP)","تدقيق الفروع (CAPA)","مؤشرات الأداء (KPIs)","تدريب وتأهيل الفرق","أنظمة نقاط البيع","الفوترة الإلكترونية","المنيو الرقمي","تطوير الويب (HTML / JavaScript)","Firebase / Cloudflare"],
+  en:["Restaurant & café operations","Food cost control","Recipe costing cards","Waste & inventory management","HACCP & food safety","Branch audits & CAPA","KPIs","Team training & development","POS systems","E-invoicing","Digital menus","Web development (HTML / JavaScript)","Firebase & Cloudflare"]
+};
 
 const T = {
-  ar:{p4_d:"مواقع ومنيوهات رقمية لمطاعم وكافيهات.",p4_t:"مواقع ومنيوهات المطاعم",p3_d:"طلب أونلاين (توصيل/استلام) مع اختيار أقرب فرع، إسناد المندوب، تتبّع على الخريطة، تقييم ونقاط ولاء.",p3_t:"مكبوس — الطلب والتوصيل",sk1:"أنظمة نقاط البيع",sk2:"الفوترة الإلكترونية",sk3:"المحاسبة والتقارير",sk5:"المنيو الرقمي والطلب أونلاين",logo:"حاتم",nav_about:"نبذة",nav_skills:"المهارات",nav_work:"أعمالي",nav_contact:"تواصل",kicker:"مرحباً، أنا",name:"حاتم المصري",
-    tagline:"أبني حلولاً رقمية تُسهّل إدارة المطاعم والمنشآت — من الكاشير والفوترة الإلكترونية إلى المنيو الرقمي والتوصيل والمحاسبة.",
-    cta_work:"شاهد أعمالي",cta_contact:"تواصل معي",initial:"ح",
-    about_h:"نبذة عني",about_p:"مطوّر منتجات برمجية متخصص في قطاع المطاعم والمنشآت. أبني أنظمة متكاملة تخدم صاحب العمل مباشرة: كاشير وفوترة إلكترونية، منيو رقمي وطلب من الطاولة، توصيل وتتبّع، ومحاسبة وتقارير — على قاعدة بيانات واحدة. أركّز على البساطة والموثوقية وتجربة عربية متقنة.",
-    skills_h:"المهارات",skills_p:"الأدوات والمجالات التي أعمل بها.",sk4:"تجربة المستخدم العربية (RTL)",
-    work_h:"أعمالي",work_p:"منتجات ومشاريع أعمل عليها أو أنجزتها.",p1_t:"نَسَق — المنصة الموحّدة",
-    p1_d:"منصة SaaS متعددة المنشآت تجمع الكاشير، الفوترة الإلكترونية، المنيو الرقمي، الطلب من الطاولة، التوصيل، المحاسبة والموارد البشرية على قاعدة بيانات واحدة.",
-    p2_t:"FELDÉ — منصة المحاسبة",p2_d:"شجرة حسابات، قيود يومية، ميزان مراجعة، قائمة دخل وتقارير مع سجل تدقيق.",
-    contact_h:"تواصل معي",contact_p:"أسرع طريقة للوصول إليّ هي واتساب.",wa:"واتساب",foot:"© جميع الحقوق محفوظة — حاتم المصري",badge:"مشروع مميّز",langBtn:"English"},
-  en:{p4_d:"Websites and digital menus for restaurants and cafés.",p4_t:"Restaurant sites & menus",p3_d:"Online ordering (delivery/pickup) with nearest-branch selection, driver assignment, live map tracking, ratings and loyalty points.",p3_t:"Makbous — Ordering & Delivery",sk1:"Point-of-sale systems",sk2:"E-invoicing",sk3:"Accounting & reporting",sk5:"Digital menu & online ordering",logo:"Hatem",nav_about:"About",nav_skills:"Skills",nav_work:"Work",nav_contact:"Contact",kicker:"Hi, I'm",name:"Hatem Almasry",
-    tagline:"I build digital products that simplify running restaurants and venues — from POS and e-invoicing to digital menus, delivery and accounting.",
-    cta_work:"See my work",cta_contact:"Get in touch",initial:"H",
-    about_h:"About me",about_p:"Software product builder focused on restaurants and venues. I build integrated systems that serve the owner directly: POS and e-invoicing, digital menus and table ordering, delivery and tracking, accounting and reports — on a single database. I care about simplicity, reliability and a polished Arabic experience.",
-    skills_h:"Skills",skills_p:"Tools and domains I work with.",sk4:"Arabic (RTL) UX",
-    work_h:"Work",work_p:"Products and projects I'm building or have shipped.",p1_t:"Nassaq — Unified Platform",
-    p1_d:"A multi-tenant SaaS combining POS, e-invoicing, digital menu, table ordering, delivery, accounting and HR on a single database.",
-    p2_t:"FELDÉ — Accounting Platform",p2_d:"Chart of accounts, journal entries, trial balance, income statement and reports with an audit log.",
-    contact_h:"Contact",contact_p:"The fastest way to reach me is WhatsApp.",wa:"WhatsApp",foot:"© All rights reserved — Hatem Almasry",badge:"Featured",langBtn:"العربية"}
+  ar:{logo:"حاتم",nav_about:"نبذة",nav_services:"ماذا أنجز",nav_skills:"المهارات",nav_contact:"تواصل",kicker:"مرحباً، أنا",name:"حاتم عطية",role:"تشغيل المطاعم والمشاريع",
+    tagline:"أبني أنظمة تشغيل واضحة ترفع الجودة وتضبط التكلفة في المطاعم والكافيهات — من بطاقات التكلفة والتدقيق والتدريب إلى المنصات الرقمية.",
+    cta_contact:"تواصل معي",cta_work:"ماذا أنجز",initial:"ح",
+    about_h:"نبذة عني",about_p:"خبرة ميدانية في تشغيل المطاعم والمقاهي في المملكة العربية السعودية. أؤمن بأن التشغيل الممتاز ليس صدفة بل نظام: معايير واضحة، أرقام دقيقة، وفرق مدرّبة. أجمع بين الخبرة التشغيلية والمحاسبية والتقنية لأبني حلولاً عملية تخدم صاحب المشروع مباشرة.",
+    svc_h:"ماذا أستطيع إنجازه",svc_p:"خدمات وحلول أقدّمها للمطاعم والكافيهات والمشاريع.",
+    skills_h:"المهارات",skills_p:"مجالات الخبرة والأدوات.",
+    contact_h:"تواصل معي",contact_p:"أسرع طريقة للوصول إليّ هي واتساب.",wa:"واتساب",foot:"© جميع الحقوق محفوظة — حاتم عطية",
+    langBtn:"English",email:"البريد",training:"منصة التدريب"},
+  en:{logo:"Hatem",nav_about:"About",nav_services:"What I deliver",nav_skills:"Skills",nav_contact:"Contact",kicker:"Hi, I'm",name:"Hatem Attia",role:"Restaurant & business operations",
+    tagline:"I build clear operating systems that raise quality and control cost in restaurants and cafés — from costing cards, audits and training to digital platforms.",
+    cta_contact:"Get in touch",cta_work:"What I deliver",initial:"H",
+    about_h:"About me",about_p:"Hands-on experience running restaurants and cafés in Saudi Arabia. I believe excellent operations are not luck but a system: clear standards, accurate numbers and trained teams. I combine operational, financial and technical experience to build practical solutions that serve the business owner directly.",
+    svc_h:"What I can deliver",svc_p:"Services and solutions I provide for restaurants, cafés and businesses.",
+    skills_h:"Skills",skills_p:"Areas of expertise and tools.",
+    contact_h:"Contact",contact_p:"The fastest way to reach me is WhatsApp.",wa:"WhatsApp",foot:"© All rights reserved — Hatem Attia",
+    langBtn:"العربية",email:"Email",training:"Training platform"}
 };
 const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
 let lang=(()=>{try{return localStorage.getItem("lang")}catch(e){return null}})()||"ar";
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
 function render(){
   const t=T[lang];
   document.documentElement.lang=lang; document.documentElement.dir=lang==="ar"?"rtl":"ltr";
   $$("[data-i18n]").forEach(el=>{const v=t[el.dataset.i18n]; if(v!=null) el.textContent=v;});
-  $(".featured").dataset.badge=t.badge; $("#lang").textContent=t.langBtn;
-  document.title=lang==="ar"?"حاتم المصري | Hatem Almasry":"Hatem Almasry | حاتم المصري";
+  $("#lang").textContent=t.langBtn;
+  document.title=lang==="ar"?"حاتم عطية | Hatem Attia":"Hatem Attia | حاتم عطية";
+  $("#svc").innerHTML=SERVICES[lang].map(([h,p,li])=>`<article class="card"><h3>${esc(h)}</h3><p>${esc(p)}</p><ul>${li.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></article>`).join("");
+  $("#skl").innerHTML=SKILLS[lang].map(x=>`<span>${esc(x)}</span>`).join("");
   const box=$("#contacts"); box.innerHTML="";
-  const L=PROFILE.links, names={github:"GitHub",linkedin:"LinkedIn",x:"X",instagram:"Instagram",email:lang==="ar"?"البريد":"Email"};
+  const L=PROFILE.links, names={training:t.training,linkedin:"LinkedIn",youtube:"YouTube",tiktok:"TikTok",instagram:"Instagram",facebook:"Facebook",github:"GitHub",email:t.email};
   const add=(label,href,primary)=>{const a=document.createElement("a");a.className="btn"+(primary?" primary":"");a.textContent=label;a.href=href;a.target="_blank";a.rel="noopener";box.appendChild(a);};
   if(PROFILE.whatsapp) add(t.wa,"https://wa.me/"+PROFILE.whatsapp.replace(/\D/g,""),true);
   Object.keys(names).forEach(k=>{if(L[k]) add(names[k],k==="email"?"mailto:"+L[k]:L[k]);});

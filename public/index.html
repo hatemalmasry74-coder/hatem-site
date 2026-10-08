@@ -78,6 +78,39 @@ h2::after{content:"";display:block;width:48px;height:4px;background:var(--accent
 footer{padding:32px 0;color:var(--muted);text-align:center;border-top:1px solid var(--line);font-size:14px}
 .wa{position:fixed;bottom:18px;inset-inline-end:18px;background:#2e7d4f;color:#fff;border-radius:999px;padding:12px 20px;font-weight:600;box-shadow:var(--shadow);z-index:20}
 .hidden{display:none!important}
+.docs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.doc{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.dh{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 20px;color:#f4f1e6;font-weight:700;background:linear-gradient(135deg,#5f7a34,#3e4f22)}
+.dh small{color:#e3c77a;font-weight:600;white-space:nowrap}
+.db{padding:18px 20px}
+.tint{background:color-mix(in srgb,var(--olive) 11%,var(--bg))}
+.meta{display:flex;justify-content:space-between;gap:10px;border-radius:10px;padding:8px 14px;font-size:14px;color:var(--muted);margin-bottom:12px}
+.r{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.r b{color:var(--olive-d);font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.rh{color:var(--muted);font-size:13.5px;font-weight:600}
+.tot{display:flex;justify-content:space-between;gap:10px;border-radius:10px;padding:12px 16px;margin-top:12px;font-weight:700}
+.tot b{color:var(--olive-d);white-space:nowrap}
+@media(min-width:900px){.doc.wide{grid-column:span 2}}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.kpi{border-radius:12px;padding:12px 14px}
+.kpi span{display:block;color:var(--muted);font-size:13.5px}
+.kpi b{font-size:26px;color:var(--olive-d);line-height:1.4}
+.bar{margin-top:14px}
+.bar .t{display:flex;justify-content:space-between;font-size:14px;margin-bottom:5px}
+.bar i{display:block;height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar em{display:block;height:100%;background:linear-gradient(90deg,var(--olive-l),var(--olive));border-radius:99px}
+.chk{display:flex;align-items:center;gap:10px;padding:7px 0;font-size:15px}
+.chk u{width:20px;height:20px;border-radius:6px;border:2px solid var(--olive);display:grid;place-items:center;text-decoration:none;font-size:12px;flex:none;color:var(--bg)}
+.chk u.on{background:var(--olive)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.stats .kpi b{font-size:19px}
+.audit{display:flex;gap:18px;align-items:center}
+.audit .rows{flex:1}
+.ring{width:96px;height:96px;border-radius:50%;flex:none;background:conic-gradient(var(--olive) calc(var(--p)*1%),var(--line) 0);display:grid;place-items:center}
+.ring span{width:74px;height:74px;border-radius:50%;background:var(--surface);display:grid;place-items:center;font-weight:800;font-size:26px;color:var(--olive-d);line-height:1}
+.note{margin-top:14px;border-radius:10px;padding:10px 14px;font-size:14px;color:var(--olive-d);border:1px solid var(--line)}
+.sig{display:flex;justify-content:space-between;gap:10px;margin-top:14px;font-size:13.5px;color:var(--muted)}
+
 .portrait{overflow:hidden;padding:0;font-size:0}
 .portrait img{width:100%;height:100%;object-fit:cover;display:block}
 .vis{height:120px;border-radius:12px;margin-bottom:16px;display:grid;place-items:center;background:radial-gradient(circle at 25% 20%,var(--olive-l),transparent 60%),linear-gradient(145deg,var(--olive),var(--olive-d))}
@@ -105,6 +138,7 @@ footer{padding:32px 0;color:var(--muted);text-align:center;border-top:1px solid 
   <nav><ul>
     <li><a href="#about" data-i18n="nav_about">نبذة</a></li>
     <li><a href="#services" data-i18n="nav_services">ماذا أنجز</a></li>
+    <li><a href="#samples" data-i18n="nav_samples">نماذج</a></li>
     <li><a href="#subscribe" data-i18n="nav_sub">اشترك</a></li>
     <li><a href="#skills" data-i18n="nav_skills">المهارات</a></li>
     <li><a href="#contact" data-i18n="nav_contact">تواصل</a></li>
@@ -139,6 +173,12 @@ footer{padding:32px 0;color:var(--muted);text-align:center;border-top:1px solid 
     <h2 data-i18n="svc_h"></h2>
     <p class="sub" data-i18n="svc_p"></p>
     <div class="grid" id="svc"></div>
+  </section>
+
+  <section id="samples">
+    <h2 data-i18n="smp_h"></h2>
+    <p class="sub" data-i18n="smp_p"></p>
+    <div class="docs" id="docs"></div>
   </section>
 
   <section id="subscribe">
@@ -216,13 +256,37 @@ const PLANS={
   ["Operations consultation for your restaurant or café","An analysis session of your current situation: cost, waste, daily operations and quality, with a clear improvement plan.",["Cost & waste analysis","Operations & quality review","Written improvement plan"],"I would like to book an operations consultation"],
   ["A digital platform for your restaurant","A system that fits your business: POS and e-invoicing, digital menu and online ordering, accounting and reports.",["POS & e-invoicing","Digital menu & online ordering","Accounting & reports"],"I would like details about the digital platform for restaurants"]
  ]};
+const SAMPLES={
+ ar:{tag:"نموذج",cur:"ر.س",
+  dash:{h:"لوحة المؤشرات الشهرية",k:[["تكلفة الغذاء","28%"],["هامش الربح الإجمالي","68%"],["تكلفة العمالة","22%"],["صافي الربح التشغيلي","18%"]],b:[["نقطة التعادل الشهرية","محسوبة",85],["مطابقة الحسابات البنكية","مكتملة",100],["كروت تكلفة الأصناف","موثّقة",90]]},
+  cost:{h:"كارت تكلفة صنف — برجر كلاسيك",th:["المكوّن","الكمية","التكلفة"],rows:[["خبز برجر","1 حبة","1.20"],["لحم بقري طازج","150 جم","6.75"],["جبن شيدر","شريحة","0.95"],["خضار وصوصات","حصة","1.40"],["تغليف + هدر 3%","–","0.85"]],tot:["تكلفة الصنف","11.15"],st:[["سعر البيع","39"],["نسبة التكلفة","28.6%"],["مساهمة الربح","27.85"]]},
+  clean:{h:"تشيك ليست النظافة اليومية",m:["الوردية: مسائية","المسؤول: مشرف الفرع"],it:[["تعقيم أسطح التحضير والتقطيع",1],["فحص درجات حرارة الثلاجات والفريزر",1],["نظافة منطقة الضيوف ودورات المياه",1],["التخلص الآمن من الزيوت والنفايات",1],["غسيل وتعقيم فلاتر الشفاط الأسبوعي",0]],p:["نسبة الإنجاز","92%"]},
+  rev:{h:"سند استلام الإيراد اليومي",m:["الفرع: الرئيسي","التاريخ: __ / __ / ____"],rows:[["مبيعات نقدية (كاش)","3,240.00"],["مبيعات الشبكة","8,915.50"],["تحويل بنكي","1,200.00"],["تطبيقات التوصيل","2,480.75"]],tot:["إجمالي إيراد اليوم","15,836.25"],sig:["الكاشير: ________","المستلم: ________"]},
+  audit:{h:"تقرير جولة تفتيش الفرع",rows:[["النظافة والصحة العامة","24/25"],["جودة المنتج والتقديم","22/25"],["مظهر الفريق والالتزام","21/25"],["المخزون والتخزين السليم","21/25"]],score:88,sl:"الدرجة",note:"ملاحظة: إعادة ترتيب مخزن الجاف حسب FIFO خلال 48 ساعة."}},
+ en:{tag:"Sample",cur:"SAR",
+  dash:{h:"Monthly KPI dashboard",k:[["Food cost","28%"],["Gross profit margin","68%"],["Labor cost","22%"],["Net operating profit","18%"]],b:[["Monthly break-even point","Calculated",85],["Bank reconciliation","Complete",100],["Item costing cards","Documented",90]]},
+  cost:{h:"Item costing card — Classic burger",th:["Ingredient","Qty","Cost"],rows:[["Burger bun","1 pc","1.20"],["Fresh beef","150 g","6.75"],["Cheddar cheese","1 slice","0.95"],["Veggies & sauces","1 portion","1.40"],["Packaging + 3% waste","–","0.85"]],tot:["Item cost","11.15"],st:[["Selling price","39"],["Cost %","28.6%"],["Profit contribution","27.85"]]},
+  clean:{h:"Daily cleaning checklist",m:["Shift: Evening","Owner: Branch supervisor"],it:[["Sanitize prep & cutting surfaces",1],["Check fridge & freezer temperatures",1],["Clean dining area & restrooms",1],["Safe disposal of oil & waste",1],["Weekly hood filter wash & sanitizing",0]],p:["Completion","92%"]},
+  rev:{h:"Daily revenue receipt",m:["Branch: Main","Date: __ / __ / ____"],rows:[["Cash sales","3,240.00"],["Card sales","8,915.50"],["Bank transfer","1,200.00"],["Delivery apps","2,480.75"]],tot:["Total daily revenue","15,836.25"],sig:["Cashier: ________","Received by: ________"]},
+  audit:{h:"Branch inspection round report",rows:[["Cleanliness & hygiene","24/25"],["Product quality & presentation","22/25"],["Team appearance & compliance","21/25"],["Inventory & proper storage","21/25"]],score:88,sl:"Score",note:"Note: Re-arrange dry storage by FIFO within 48 hours."}}
+};
+function renderSamples(){
+  const D=SAMPLES[lang],c=D.cur,H=(h)=>`<div class="dh"><span>${esc(h)}</span><small>✦ ${esc(D.tag)}</small></div>`;
+  const d=D.dash,k=D.cost,l=D.clean,r=D.rev,a=D.audit;
+  const dash=`<article class="doc">${H(d.h)}<div class="db"><div class="kpis">${d.k.map(([x,v])=>`<div class="kpi tint"><span>${esc(x)}</span><b>${esc(v)}</b></div>`).join("")}</div>${d.b.map(([x,st,p])=>`<div class="bar"><div class="t"><span>${esc(x)}</span><span>✓ ${esc(st)}</span></div><i><em style="width:${p}%"></em></i></div>`).join("")}</div></article>`;
+  const cost=`<article class="doc">${H(k.h)}<div class="db"><div class="r rh"><span>${esc(k.th[0])}</span><span>${esc(k.th[1])}</span><span>${esc(k.th[2])}</span></div>${k.rows.map(([x,q,v])=>`<div class="r"><span>${esc(x)}</span><span>${esc(q)}</span><b>${esc(v)}</b></div>`).join("")}<div class="tot tint"><span>${esc(k.tot[0])}</span><b>${esc(k.tot[1])} ${esc(c)}</b></div><div class="stats">${k.st.map(([x,v])=>`<div class="kpi tint"><span>${esc(x)}</span><b>${esc(v)}</b></div>`).join("")}</div></div></article>`;
+  const clean=`<article class="doc">${H(l.h)}<div class="db"><div class="meta tint"><span>${esc(l.m[0])}</span><span>${esc(l.m[1])}</span></div>${l.it.map(([x,on])=>`<div class="chk"><u class="${on?"on":""}">${on?"✓":""}</u><span>${esc(x)}</span></div>`).join("")}<div class="tot tint"><span>${esc(l.p[0])}</span><b>${esc(l.p[1])}</b></div></div></article>`;
+  const rev=`<article class="doc">${H(r.h)}<div class="db"><div class="meta tint"><span>${esc(r.m[0])}</span><span>${esc(r.m[1])}</span></div>${r.rows.map(([x,v])=>`<div class="r"><span>${esc(x)}</span><b>${esc(v)}</b></div>`).join("")}<div class="tot tint"><span>${esc(r.tot[0])}</span><b>${esc(r.tot[1])} ${esc(c)}</b></div><div class="sig"><span>${esc(r.sig[0])}</span><span>${esc(r.sig[1])}</span></div></div></article>`;
+  const audit=`<article class="doc wide">${H(a.h)}<div class="db"><div class="audit"><div class="rows">${a.rows.map(([x,v])=>`<div class="r"><span>${esc(x)}</span><b>${esc(v)}</b></div>`).join("")}</div><div class="ring" style="--p:${a.score}"><span>${a.score}</span></div></div><div class="note tint">${esc(a.note)}</div></div></article>`;
+  $("#docs").innerHTML=dash+cost+clean+rev+audit;
+}
 const SKILLS = {
   ar:["تشغيل المطاعم والكافيهات","تكلفة الغذاء","بطاقات التكلفة","إدارة الهدر والمخزون","سلامة الغذاء (HACCP)","تدقيق الفروع (CAPA)","مؤشرات الأداء (KPIs)","تدريب وتأهيل الفرق","أنظمة نقاط البيع","الفوترة الإلكترونية","المنيو الرقمي","تطوير الويب (HTML / JavaScript)","Firebase / Cloudflare"],
   en:["Restaurant & café operations","Food cost control","Recipe costing cards","Waste & inventory management","HACCP & food safety","Branch audits & CAPA","KPIs","Team training & development","POS systems","E-invoicing","Digital menus","Web development (HTML / JavaScript)","Firebase & Cloudflare"]
 };
 
 const T = {
-  ar:{logo:"حاتم",nav_about:"نبذة",nav_services:"ماذا أنجز",nav_skills:"المهارات",nav_sub:"اشترك",nav_contact:"تواصل",sub_h:"اشترك الآن",sub_p:"اختر ما يناسبك، واضغط الزر لتصلني رسالتك على واتساب جاهزة.",sub_cta:"اشترك عبر واتساب",price:"السعر: تواصل معي",mail_l:"أو راسلني على البريد:",kicker:"مرحباً، أنا",name:"حاتم عطية",role:"تشغيل المطاعم والمشاريع",
+  ar:{logo:"حاتم",nav_about:"نبذة",nav_services:"ماذا أنجز",nav_skills:"المهارات",nav_sub:"اشترك",nav_samples:"نماذج",smp_h:"نماذج من أعمالي",smp_p:"نماذج توضيحية بأرقام افتراضية لما أبنيه لعملائي: مؤشرات، بطاقات تكلفة، قوائم تشغيل، وتقارير.",nav_contact:"تواصل",sub_h:"اشترك الآن",sub_p:"اختر ما يناسبك، واضغط الزر لتصلني رسالتك على واتساب جاهزة.",sub_cta:"اشترك عبر واتساب",price:"السعر: تواصل معي",mail_l:"أو راسلني على البريد:",kicker:"مرحباً، أنا",name:"حاتم عطية",role:"تشغيل المطاعم والمشاريع",
     tagline:"أبني أنظمة تشغيل واضحة ترفع الجودة وتضبط التكلفة في المطاعم والكافيهات — من بطاقات التكلفة والتدقيق والتدريب إلى المنصات الرقمية.",
     cta_contact:"تواصل معي",cta_work:"ماذا أنجز",initial:"ح",
     about_h:"نبذة عني",about_p:"خبرة ميدانية في تشغيل المطاعم والمقاهي في المملكة العربية السعودية. أؤمن بأن التشغيل الممتاز ليس صدفة بل نظام: معايير واضحة، أرقام دقيقة، وفرق مدرّبة. أجمع بين الخبرة التشغيلية والمحاسبية والتقنية لأبني حلولاً عملية تخدم صاحب المشروع مباشرة.",
@@ -230,7 +294,7 @@ const T = {
     skills_h:"المهارات",skills_p:"مجالات الخبرة والأدوات.",
     contact_h:"تواصل معي",contact_p:"أسرع طريقة للوصول إليّ هي واتساب.",wa:"واتساب",foot:"© جميع الحقوق محفوظة — حاتم عطية",
     langBtn:"English",email:"البريد",training:"منصة التدريب"},
-  en:{logo:"Hatem",nav_about:"About",nav_services:"What I deliver",nav_skills:"Skills",nav_sub:"Subscribe",nav_contact:"Contact",sub_h:"Subscribe now",sub_p:"Pick what suits you and tap the button — your message reaches me on WhatsApp, ready to send.",sub_cta:"Subscribe via WhatsApp",price:"Price: contact me",mail_l:"Or email me at:",kicker:"Hi, I'm",name:"Hatem Attia",role:"Restaurant & business operations",
+  en:{logo:"Hatem",nav_about:"About",nav_services:"What I deliver",nav_skills:"Skills",nav_sub:"Subscribe",nav_samples:"Samples",smp_h:"Samples of my work",smp_p:"Illustrative samples with sample figures of what I build for clients: KPIs, costing cards, operating checklists and reports.",nav_contact:"Contact",sub_h:"Subscribe now",sub_p:"Pick what suits you and tap the button — your message reaches me on WhatsApp, ready to send.",sub_cta:"Subscribe via WhatsApp",price:"Price: contact me",mail_l:"Or email me at:",kicker:"Hi, I'm",name:"Hatem Attia",role:"Restaurant & business operations",
     tagline:"I build clear operating systems that raise quality and control cost in restaurants and cafés — from costing cards, audits and training to digital platforms.",
     cta_contact:"Get in touch",cta_work:"What I deliver",initial:"H",
     about_h:"About me",about_p:"Hands-on experience running restaurants and cafés in Saudi Arabia. I believe excellent operations are not luck but a system: clear standards, accurate numbers and trained teams. I combine operational, financial and technical experience to build practical solutions that serve the business owner directly.",
@@ -251,6 +315,7 @@ function render(){
   document.title=lang==="ar"?"حاتم عطية | Hatem Attia":"Hatem Attia | حاتم عطية";
   $("#svc").innerHTML=SERVICES[lang].map(([h,p,li],i)=>`<article class="card"><div class="vis" aria-hidden="true">${ICONS[i]}</div><h3>${esc(h)}</h3><p>${esc(p)}</p><ul>${li.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></article>`).join("");
   $("#plans").innerHTML=PLANS[lang].map(([h,p,li,msg])=>`<article class="card plan"><h3>${esc(h)}</h3><div class="price">${esc(t.price)}</div><p>${esc(p)}</p><ul>${li.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><a class="btn primary" style="margin-top:18px" target="_blank" rel="noopener" href="https://wa.me/${PROFILE.whatsapp.replace(/\D/g,"")}?text=${encodeURIComponent(msg)}">${esc(t.sub_cta)}</a></article>`).join("");
+  renderSamples();
   const mt=$("#mailtxt"); mt.textContent=PROFILE.links.email; mt.href="mailto:"+PROFILE.links.email;
   $("#skl").innerHTML=SKILLS[lang].map(x=>`<span>${esc(x)}</span>`).join("");
   const box=$("#contacts"); box.innerHTML="";

@@ -101,7 +101,7 @@ footer{padding:32px 0;color:var(--muted);text-align:center;border-top:1px solid 
     <div>
       <div class="kicker" data-i18n="kicker">مرحباً، أنا</div>
       <h1 data-i18n="name">حاتم المصري</h1>
-      <p data-i18n="tagline">أبني حلولاً رقمية تُسهّل إدارة الأعمال — من أنظمة الكاشير والفوترة الإلكترونية إلى المنصات المتكاملة للمنشآت.</p>
+      <p data-i18n="tagline">أهلاً بك في موقعي الشخصي. هنا تجد نبذة عني وأعمالي وطرق التواصل معي.</p>
       <div class="cta">
         <a class="btn primary" href="#work" data-i18n="cta_work">شاهد أعمالي</a>
         <a class="btn" href="#contact" data-i18n="cta_contact">تواصل معي</a>
@@ -112,16 +112,14 @@ footer{padding:32px 0;color:var(--muted);text-align:center;border-top:1px solid 
 
   <section id="about">
     <h2 data-i18n="about_h">نبذة عني</h2>
-    <p class="sub" data-i18n="about_p">أعمل على بناء منتجات برمجية عملية تخدم أصحاب المنشآت مباشرة: أفكّر في المشكلة من زاوية صاحب العمل، وأحوّلها إلى نظام بسيط وموثوق. أؤمن بأن أفضل برنامج هو الذي يختفي أثناء العمل ويُظهر النتيجة فقط. (عدّل هذه النبذة لتعكس قصتك الحقيقية.)</p>
+    <p class="sub" data-i18n="about_p">هذه نبذة مؤقتة. أرسل لي معلوماتك ومجال عملك وسأكتبها بصياغتك.</p>
   </section>
 
   <section id="skills">
     <h2 data-i18n="skills_h">المهارات</h2>
-    <p class="sub" data-i18n="skills_p">الأدوات والمجالات التي أعمل بها.</p>
+    <p class="sub" data-i18n="skills_p">مهارات مؤقتة — سأعدّلها حسب ما ترسله.</p>
     <div class="skills">
-      <span>HTML / CSS / JavaScript</span><span>Firebase / Firestore</span><span>Cloudflare</span>
-      <span>SaaS</span><span data-i18n="sk1">أنظمة نقاط البيع</span><span data-i18n="sk2">الفوترة الإلكترونية</span>
-      <span data-i18n="sk3">المحاسبة والتقارير</span><span data-i18n="sk4">تجربة المستخدم العربية (RTL)</span>
+      <span>HTML / CSS / JavaScript</span><span data-i18n="sk4">تجربة المستخدم العربية (RTL)</span>
     </div>
   </section>
 
@@ -130,13 +128,13 @@ footer{padding:32px 0;color:var(--muted);text-align:center;border-top:1px solid 
     <p class="sub" data-i18n="work_p">مشاريع أعمل عليها أو أنجزتها.</p>
     <div class="grid">
       <article class="card featured" data-badge="">
-        <h3 data-i18n="p1_t">نَسَق — المنصة الموحّدة</h3>
-        <p data-i18n="p1_d">منصة SaaS متعددة المنشآت تجمع الكاشير، الفوترة الإلكترونية، المنيو الرقمي، الطلب من الطاولة، التوصيل، المحاسبة والموارد البشرية على قاعدة بيانات واحدة.</p>
-        <span class="tag">POS</span><span class="tag">Firebase</span><span class="tag">SaaS</span>
+        <h3 data-i18n="p1_t">مشروع (قريباً)</h3>
+        <p data-i18n="p1_d">وصف مختصر للمشروع يُضاف هنا.</p>
+        
       </article>
       <article class="card">
-        <h3 data-i18n="p2_t">مشروعك القادم هنا</h3>
-        <p data-i18n="p2_d">أضف مشاريع أخرى من مستودعاتك على GitHub — أخبرني بها وسأضيفها.</p>
+        <h3 data-i18n="p2_t">مشروع آخر (قريباً)</h3>
+        <p data-i18n="p2_d">أخبرني بالمشاريع التي تريد عرضها وسأضيفها.</p>
       </article>
     </div>
   </section>
@@ -167,22 +165,22 @@ const PROFILE = {
 
 const T = {
   ar:{logo:"حاتم",nav_about:"نبذة",nav_skills:"المهارات",nav_work:"أعمالي",nav_contact:"تواصل",kicker:"مرحباً، أنا",name:"حاتم المصري",
-    tagline:"أبني حلولاً رقمية تُسهّل إدارة الأعمال — من أنظمة الكاشير والفوترة الإلكترونية إلى المنصات المتكاملة للمنشآت.",
+    tagline:"أهلاً بك في موقعي الشخصي. هنا تجد نبذة عني وأعمالي وطرق التواصل معي.",
     cta_work:"شاهد أعمالي",cta_contact:"تواصل معي",initial:"ح",
-    about_h:"نبذة عني",about_p:"أعمل على بناء منتجات برمجية عملية تخدم أصحاب المنشآت مباشرة: أفكّر في المشكلة من زاوية صاحب العمل، وأحوّلها إلى نظام بسيط وموثوق. أؤمن بأن أفضل برنامج هو الذي يختفي أثناء العمل ويُظهر النتيجة فقط. (عدّل هذه النبذة لتعكس قصتك الحقيقية.)",
-    skills_h:"المهارات",skills_p:"الأدوات والمجالات التي أعمل بها.",sk1:"أنظمة نقاط البيع",sk2:"الفوترة الإلكترونية",sk3:"المحاسبة والتقارير",sk4:"تجربة المستخدم العربية (RTL)",
-    work_h:"أعمالي",work_p:"مشاريع أعمل عليها أو أنجزتها.",p1_t:"نَسَق — المنصة الموحّدة",
-    p1_d:"منصة SaaS متعددة المنشآت تجمع الكاشير، الفوترة الإلكترونية، المنيو الرقمي، الطلب من الطاولة، التوصيل، المحاسبة والموارد البشرية على قاعدة بيانات واحدة.",
-    p2_t:"مشروعك القادم هنا",p2_d:"أضف مشاريع أخرى من مستودعاتك على GitHub — أخبرني بها وسأضيفها.",
+    about_h:"نبذة عني",about_p:"هذه نبذة مؤقتة. أرسل لي معلوماتك ومجال عملك وسأكتبها بصياغتك.",
+    skills_h:"المهارات",skills_p:"مهارات مؤقتة — سأعدّلها حسب ما ترسله.",sk4:"تجربة المستخدم العربية (RTL)",
+    work_h:"أعمالي",work_p:"مشاريع أعمل عليها أو أنجزتها.",p1_t:"مشروع (قريباً)",
+    p1_d:"وصف مختصر للمشروع يُضاف هنا.",
+    p2_t:"مشروع آخر (قريباً)",p2_d:"أخبرني بالمشاريع التي تريد عرضها وسأضيفها.",
     contact_h:"تواصل معي",contact_p:"أسرع طريقة للوصول إليّ هي واتساب.",wa:"واتساب",foot:"© جميع الحقوق محفوظة — حاتم المصري",badge:"مشروع مميّز",langBtn:"English"},
   en:{logo:"Hatem",nav_about:"About",nav_skills:"Skills",nav_work:"Work",nav_contact:"Contact",kicker:"Hi, I'm",name:"Hatem Almasry",
-    tagline:"I build digital products that simplify running a business — from POS and e-invoicing to all-in-one platforms for venues.",
+    tagline:"Welcome to my personal website. Here you'll find a bit about me, my work, and how to reach me.",
     cta_work:"See my work",cta_contact:"Get in touch",initial:"H",
-    about_h:"About me",about_p:"I build practical software that serves business owners directly: I look at the problem from the owner's side and turn it into a simple, reliable system. I believe the best software disappears while you work and just shows the result. (Edit this to reflect your real story.)",
-    skills_h:"Skills",skills_p:"Tools and domains I work with.",sk1:"Point-of-sale systems",sk2:"E-invoicing",sk3:"Accounting & reporting",sk4:"Arabic (RTL) UX",
-    work_h:"Work",work_p:"Projects I'm building or have shipped.",p1_t:"Nassaq — Unified Platform",
-    p1_d:"A multi-tenant SaaS combining POS, e-invoicing, digital menu, table ordering, delivery, accounting and HR on a single database.",
-    p2_t:"Your next project here",p2_d:"Add more projects from your GitHub repos — tell me which ones and I'll add them.",
+    about_h:"About me",about_p:"This is a temporary placeholder. Send me your background and field and I'll write it in your own words.",
+    skills_h:"Skills",skills_p:"Placeholder skills — I'll update them with what you send.",sk4:"Arabic (RTL) UX",
+    work_h:"Work",work_p:"Projects I'm building or have shipped.",p1_t:"Project (coming soon)",
+    p1_d:"A short project description goes here.",
+    p2_t:"Another project (coming soon)",p2_d:"Tell me which projects you'd like to show and I'll add them.",
     contact_h:"Contact",contact_p:"The fastest way to reach me is WhatsApp.",wa:"WhatsApp",foot:"© All rights reserved — Hatem Almasry",badge:"Featured",langBtn:"العربية"}
 };
 const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
